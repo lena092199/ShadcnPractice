@@ -1,10 +1,9 @@
 <template>
-    <div class="flex h-full min-w-[1000px]">
+    <div class="flex h-full">
         <SidebarTrigger class="cursor-pointer " />
-        <div class="bg-black h-full text-white flex-1 p-6 flex flex-col">
-
+        <div class="hidden bg-black h-full text-white flex-1 p-6 lg:flex flex-col">
             <p>Acme Inc</p>
-            <div class="mt-auto">
+            <div class="mt-auto pb-6 space-y-4">
                 <p>
                     This library has saved me countless hours of work and helped me deliver stunning designs to my
                     clients faster than ever before.
@@ -13,7 +12,7 @@
             </div>
         </div>
 
-        <div class="flex flex-col flex-1">
+        <div class="flex flex-col md:flex-1 md:px-5 w-full">
             <div class="start-0 w-full flex justify-end px-3 pt-2">
                 <Button variant="ghost">Login</Button>
             </div>
