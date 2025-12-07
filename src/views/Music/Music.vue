@@ -132,7 +132,7 @@
         </Menubar>
     </div>
     <div class="flex h-fit">
-        <div class="border-r flex flex-col gap-0 w-65">
+        <div class="border-r lg:flex flex-col gap-0 w-65" :class="Visible ? 'flex' : 'hidden'">
             <SidebarProvider class="h-full">
                 <SidebarContent class="gap-0 pl-1">
                     <SidebarGroup>
@@ -173,19 +173,21 @@
         </div>
         <div class="flex flex-col w-full">
             <div class="flex justify-between pt-8 px-6">
-                <div class="bg-gray-100 rounded-lg p-1 flex box-border">
-                    <RouterLink :to="item.url"
-                        class="bg-gray-100 shadow-none flex items-center cursor-pointer text-sm px-1"
-                        v-for="item in musicItems" :key="item.name">
-                        <span class="p-1 rounded-lg text-gray-800" :class="MusicSub(item.url)">{{ item.name
-                        }}</span>
-                    </RouterLink>
+                <div class="flex items-center space-x-4">
+                    <TextAlignJustify class="cursor-pointer stroke-black/60" @click="sidebarVisible" />
+                    <div class="bg-gray-100 rounded-lg p-1 flex box-border">
+                        <RouterLink :to="item.url" class="bg-gray-100 flex items-center cursor-pointer text-sm px-1"
+                            v-for="item in musicItems" :key="item.name">
+                            <span class="p-1 rounded-lg text-gray-800" :class="MusicSub(item.url)">{{ item.name
+                            }}</span>
+                        </RouterLink>
+                    </div>
                 </div>
                 <Button>
                     Add music
                 </Button>
             </div>
-            <div class="px-6 min-w-[760px]">
+            <div class="px-6">
                 <RouterView></RouterView>
             </div>
         </div>
@@ -204,13 +206,21 @@ import made from '@/assets/Music/Nav/made.svg';
 import artists from '@/assets/Music/Nav/artists.svg';
 import albums from '@/assets/Music/Nav/albums.svg';
 import allPlaylists from '@/assets/Music/Nav/allPlaylists.svg';
+import { TextAlignJustify } from 'lucide-vue-next';
 import { Button } from '@/components/ui/button';
 import { ref } from 'vue'
 import { useRoute } from 'vue-router';
 
+
 import { Menubar, MenubarMenu, MenubarTrigger, MenubarContent, MenubarItem, MenubarShortcut, MenubarSeparator } from '@/components/ui/menubar';
 import { MenubarSub, MenubarSubTrigger, MenubarSubContent, MenubarCheckboxItem, MenubarRadioGroup, MenubarRadioItem } from '@/components/ui/menubar';
 import { SidebarTrigger } from '@/components/ui/sidebar'
+
+const Visible = ref(false)
+const sidebarVisible = () => {
+    Visible.value = !Visible.value
+}
+
 const route = useRoute()
 const MusicSub = (url) => {
     if (url === '#') {

@@ -17,8 +17,8 @@
                 </SidebarMenu>
             </SidebarContent>
         </Sidebar>
-        <div class="flex flex-col w-full h-screen">
-            <div class="h-full">
+        <div class="flex flex-col w-full">
+            <div class=" h-screen">
                 <RouterView></RouterView>
             </div>
         </div>

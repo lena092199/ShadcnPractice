@@ -25,7 +25,7 @@ defineProps<Props>();
             <div v-for="(item, index) in items" :key="index" class="pr-4 shrink-0">
                 <div class="rounded-lg overflow-hidden">
                     <img :src="item.icon" alt="MusicIcon"
-                        :class="` rounded-lg cursor-pointer hover:scale-105 overflow-hidden  ${item.w} ${item.h}`">
+                        :class="`rounded-lg cursor-pointer hover:scale-105 overflow-hidden  ${item.w} ${item.h}`">
                 </div>
 
                 <div class="pt-2">{{ item.music }}</div>
