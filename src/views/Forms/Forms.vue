@@ -1,9 +1,9 @@
 <template>
-    <div class="flex pt-2">
-        <div>
+    <div class="flex pt-3">
+        <div class="pl-2">
             <SidebarTrigger />
         </div>
-        <div class="w-full pl-2 min-w-[500px]">
+        <div class="w-full pl-2">
             <FieldSet>
                 <div>
                     <FieldLegend class="text-2xl font-semibold">Settings</FieldLegend>
