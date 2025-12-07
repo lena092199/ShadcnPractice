@@ -6,8 +6,8 @@
             <TabsTrigger>Reports</TabsTrigger>
             <TabsTrigger>Notifications</TabsTrigger>
         </TabsList>
-        <TabsContent value="overview" class="pt-3">
-            <div class="grid grid-cols-2 md:grid-cols-4 gap-3 w-full">
+        <TabsContent value="overview" class="pt-5">
+            <div class="grid grid-cols-2 lg:grid-cols-4 gap-5 w-full">
                 <Card v-for="fourcontent in fourCard" :key="fourcontent.id"
                     class="flex-1 sm:basis-1/3 md:basis-1/4 gap-2 ">
                     <CardHeader>
@@ -21,9 +21,9 @@
                     </CardContent>
                 </Card>
             </div>
-            <div class="grid grid-cols-1 xl:grid-cols-3 pt-5 gap-5">
-                <DashboardChart class="xl:col-span-2" />
-                <Card class="h-full">
+            <div class="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-5 pt-5 gap-5">
+                <DashboardChart class="xl:col-span-3" />
+                <Card class="h-full mt-5 xl:col-span-2">
                     <CardHeader>
                         <CardTitle>Recent Sales</CardTitle>
                         <CardDescription>You made 265 sales this month</CardDescription>

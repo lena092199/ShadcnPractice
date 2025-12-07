@@ -3,11 +3,11 @@
     <!--下拉框-->
     <Popover v-model:open="open">
         <PopoverTrigger>
-            <Button variant="outline" role="combobox" class="w-[200px] justify-between">
+            <Button variant="outline" role="combobox" class="space-x-2 justify-between">
                 <Avatar class="w-4 h-4">
                     <AvatarImage :src="src"></AvatarImage>
                 </Avatar>
-                {{ selectedItem ? selectedItem.label : 'Alicia Koch' }}
+                <span>{{ selectedItem ? selectedItem.label : 'Alicia Koch' }}</span>
                 <ChevronsUpDownIcon class=" opacity-50" />
             </Button>
         </PopoverTrigger>
