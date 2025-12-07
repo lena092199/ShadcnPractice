@@ -21,7 +21,7 @@
             <RouterView></RouterView>
         </div>
     </div>
-    <div>
+    <div class="lg:hidden block">
         <Tabs :model-value="activeTab" @update:model-value="navigateToTab">
             <TabsList>
                 <TabsTrigger v-for="item in FormsSidebar" :key="item.id" :value="item.value">
