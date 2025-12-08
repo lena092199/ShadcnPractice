@@ -1,6 +1,6 @@
 <template>
     <div class="flex pt-3">
-        <SidebarTrigger></SidebarTrigger>
+        <SidebarTrigger class="pl-4 mr-2"></SidebarTrigger>
         <div class="pl-2 flex flex-col items-center w-full">
             <div class="w-full mx-4">
                 <div class="flex w-full items-center">

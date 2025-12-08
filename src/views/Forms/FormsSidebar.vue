@@ -1,8 +1,8 @@
 <template>
-    <div class="hidden lg:flex gap-7 w-full">
+    <div class=" hidden lg:flex gap-7 w-full">
         <div class="flex">
-            <Sidebar class=":flex" collapsible="none">
-                <SidebarContent class="bg-white">
+            <Sidebar class=" bg-white" collapsible="none">
+                <SidebarContent>
                     <SidebarMenu>
                         <SidebarMenuItem v-for="sidebarContent in FormsSidebar" :key="sidebarContent.id">
                             <SidebarMenuButton class="mt-2 cursor-pointer"

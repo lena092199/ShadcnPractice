@@ -18,7 +18,7 @@
             </SidebarContent>
         </Sidebar>
         <div class="flex flex-col w-full">
-            <div class=" h-screen">
+            <div class="h-screen">
                 <RouterView></RouterView>
             </div>
         </div>

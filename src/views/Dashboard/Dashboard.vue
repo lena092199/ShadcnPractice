@@ -1,5 +1,5 @@
 <template>
-    <div class="@container flex border-b p-3 px-5 items-center">
+    <div class="flex border-b p-3 px-5 items-center">
         <DashboardAlicia />
         <div class="hidden md:flex gap-3 items-center px-5">
             <span v-for="(navC, index) in navContent" :key="index" :class="index === 0 ? 'text-red' : 'text-black/50'"

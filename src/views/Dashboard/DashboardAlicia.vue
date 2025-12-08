@@ -1,5 +1,5 @@
 <template>
-    <SidebarTrigger class="mr-3" />
+    <SidebarTrigger class="pr-4 pl-2" />
     <!--下拉框-->
     <Popover v-model:open="open">
         <PopoverTrigger>

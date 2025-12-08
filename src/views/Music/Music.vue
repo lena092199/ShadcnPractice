@@ -1,5 +1,5 @@
 <template>
-    <div class="border-b pl-1 flex items-center">
+    <div class="border-b pl-3 flex items-center">
         <SidebarTrigger class="cursor-pointer " />
         <Menubar class="border-none shadow-none">
             <MenubarMenu>
