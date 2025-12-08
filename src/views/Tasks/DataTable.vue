@@ -1,11 +1,11 @@
 <template>
     <div>
-        <div
+        <!-- <div
             class="flex flex-col justify-center items-start md:flex-row md:items-center md:justify-start pb-4 space-x-3 w-full">
             <Input class="max-w-sm w-full" placeholder="Filter Task..."
                 :model-value="table.getColumn('taskName')?.getFilterValue() as string"
-                @update:model-value=" table.getColumn('taskName')?.setFilterValue($event)" />
-            <div class="flex pt-4 w-full md:pt-0">
+                @update:model-value=" table.getColumn('taskName')?.setFilterValue($event)" /> -->
+        <!-- <div class="flex pt-4 w-full md:pt-0">
                 <DataTableCombobox></DataTableCombobox>
                 <DropdownMenu>
                     <DropdownMenuTrigger as-child class="flex ml-auto">
@@ -24,37 +24,41 @@
                         </DropdownMenuCheckboxItem>
                     </DropdownMenuContent>
                 </DropdownMenu>
-            </div>
+            </div> -->
 
-            <!-- <div
+        <div
             class="flex flex-col justify-center items-start md:flex-row md:items-center md:justify-start pb-4 space-x-3 w-full">
-            <div class="flex w-full md:hidden">
+            <div class="flex w-full md:hidden justify-between">
                 <Input class="max-w-sm w-full" placeholder="Filter Task..."
                     :model-value="table.getColumn('taskName')?.getFilterValue() as string"
                     @update:model-value=" table.getColumn('taskName')?.setFilterValue($event)" />
-                <DropdownMenu>
-                    <DropdownMenuTrigger as-child class="flex ml-3 md:ml-auto">
-                        <Button variant="outline">
-                            Columns
-                            <ChevronDown class="w-4 h-4 ml-2" />
-                        </Button>
-                    </DropdownMenuTrigger>
-                    <DropdownMenuContent align="end">
-                        <DropdownMenuCheckboxItem
-                            v-for="column in table.getAllColumns().filter((column) => column.getCanHide())"
-                            :key="column.id" class="capitalize" :modelValue="column.getIsVisible()" @update:modelValue="(value) => {
-                                column.toggleVisibility(!!value)
-                            }">
-                            {{ column.id }}
-                        </DropdownMenuCheckboxItem>
-                    </DropdownMenuContent>
-                </DropdownMenu>
+                <div class="flex ">
+                    <DropdownMenu>
+                        <DropdownMenuTrigger as-child class="flex ml-3 md:ml-auto">
+                            <Button variant="outline">
+                                Columns
+                                <ChevronDown class="w-4 h-4 ml-2" />
+                            </Button>
+                        </DropdownMenuTrigger>
+                        <DropdownMenuContent align="end">
+                            <DropdownMenuCheckboxItem
+                                v-for="column in table.getAllColumns().filter((column) => column.getCanHide())"
+                                :key="column.id" class="capitalize" :modelValue="column.getIsVisible()"
+                                @update:modelValue="(value) => {
+                                    column.toggleVisibility(!!value)
+                                }">
+                                {{ column.id }}
+                            </DropdownMenuCheckboxItem>
+                        </DropdownMenuContent>
+                    </DropdownMenu>
+                </div>
             </div>
-            <Input class="max-w-sm w-full hidden md:flex" placeholder="Filter Task..."
+            <Input class="max-w-sm  hidden w-full md:flex" placeholder="Filter Task..."
                 :model-value="table.getColumn('taskName')?.getFilterValue() as string"
                 @update:model-value=" table.getColumn('taskName')?.setFilterValue($event)" />
-            <div class="flex pt-4 w-full md:pt-0">
-                <DataTableCombobox></DataTableCombobox>
+            <div class="md:flex pt-4 w-full md:pt-0">
+                <DataTableCombobox @status-change="handleStatusChange" @priority-change="handlePriorityChange">
+                </DataTableCombobox>
                 <div class="hidden md:block ml-3 md:ml-auto">
                     <DropdownMenu>
                         <DropdownMenuTrigger as-child>
@@ -76,7 +80,7 @@
                     </DropdownMenu>
                 </div>
 
-            </div>-->
+            </div>
         </div>
 
         <div class="border rounded-md">
@@ -126,6 +130,7 @@
         </div>
     </div>
 
+
 </template>
 
 <script setup lang="ts" generic="TData, TValue">//占位，ts的泛型类型，用于说这里是一个数据或是值
@@ -158,7 +163,38 @@ import {
 } from '@/components/ui/table'
 import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
-import { ref } from 'vue'
+import { ref, computed } from 'vue'
+
+const statusFilter = ref<string[]>([])
+const priorityFilter = ref<string[]>([])
+
+// 添加事件处理函数
+const handleStatusChange = (statuses: string[]) => {
+    console.log("status被调用", statuses);
+    statusFilter.value = statuses
+}
+
+const handlePriorityChange = (priorities: string[]) => {
+    console.log("priority被调用", priorities);
+    priorityFilter.value = priorities
+}
+
+// 计算筛选后的数据：当 statusFilter 或 priorityFilter 改变时，自动重新计算
+const filteredData = computed(() => {
+    console.log('计算 filteredData, 当前 statusFilter:', statusFilter.value, '当前 priorityFilter:', priorityFilter.value)
+
+    if (statusFilter.value.length === 0 && priorityFilter.value.length === 0) {
+        return props.data
+    }
+
+    return props.data.filter((item: any) => {
+        const statusMatch = statusFilter.value.length === 0 ||
+            statusFilter.value.includes(item.status)
+        const priorityMatch = priorityFilter.value.length === 0 ||
+            priorityFilter.value.includes(item.priority)
+        return statusMatch && priorityMatch
+    })
+})
 
 const props = defineProps<{  //告诉外部我需要这些参数
     columns: ColumnDef<TData, TValue>[]
@@ -171,7 +207,7 @@ const columnVisibility = ref<VisibilityState>({})
 const rowSelection = ref({})
 
 const table = useVueTable({
-    get data() { return props.data },
+    get data() { return filteredData.value },
     get columns() { return props.columns },
     getCoreRowModel: getCoreRowModel(),
     getPaginationRowModel: getPaginationRowModel(),

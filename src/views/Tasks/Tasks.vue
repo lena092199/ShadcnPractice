@@ -2,7 +2,7 @@
     <div class="flex pt-4">
         <div class="w-full">
             <div class="w-full">
-                <div class="flex w-full items-center">
+                <div class="flex w-full">
                     <SidebarTrigger class="ml-4 mr-2"></SidebarTrigger>
                     <div>
                         <h1 class="font-semibold text-xl">Welcome back!</h1>

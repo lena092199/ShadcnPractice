@@ -132,7 +132,7 @@
         </Menubar>
     </div>
     <div class="flex h-fit">
-        <div class="border-r xl:flex flex-col gap-0 w-65" :class="Visible ? 'flex' : 'hidden'">
+        <div class="border-r flex-col gap-0 w-65" :class="Visible ? 'flex' : 'hidden'">
             <SidebarProvider class="h-full">
                 <SidebarContent class="gap-0 pl-1">
                     <SidebarGroup>
@@ -172,14 +172,14 @@
             </SidebarProvider>
         </div>
         <div class="flex flex-col w-full">
-            <div class="flex justify-between pt-8 px-6">
+            <div class="flex justify-between pt-6 px-6">
                 <div class="flex items-center space-x-4">
                     <TextAlignJustify class="cursor-pointer stroke-black/60" @click="sidebarVisible" />
                     <div class="bg-gray-100 rounded-lg p-1 flex box-border">
                         <RouterLink :to="item.url" class="bg-gray-100 flex items-center cursor-pointer text-sm px-1"
                             v-for="item in musicItems" :key="item.name">
                             <span class="p-1 rounded-lg text-gray-800" :class="MusicSub(item.url)">{{ item.name
-                                }}</span>
+                            }}</span>
                         </RouterLink>
                     </div>
                 </div>
@@ -218,6 +218,8 @@ import { SidebarTrigger } from '@/components/ui/sidebar'
 
 const Visible = ref(false)
 const sidebarVisible = () => {
+    console.log(Visible.value);
+
     Visible.value = !Visible.value
 }
 

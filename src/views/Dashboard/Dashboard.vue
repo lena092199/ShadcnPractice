@@ -1,11 +1,11 @@
 <template>
     <div class="flex border-b p-3 px-5 items-center">
         <DashboardAlicia />
-        <div class="hidden md:flex gap-3 items-center px-5">
+        <div class="hidden lg:flex gap-3 items-center px-5">
             <span v-for="(navC, index) in navContent" :key="index" :class="index === 0 ? 'text-red' : 'text-black/50'"
                 class="text-sm">{{ navC }}</span>
         </div>
-        <div class="flex md:hidden px-5 ">
+        <div class="flex lg:hidden px-5 ">
             <DropdownMenu>
                 <DropdownMenuTrigger class="cursor-pointer">
                     <List class="stroke-black/70"></List>
