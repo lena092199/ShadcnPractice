@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div class="@container w-full">
         <!-- <div
             class="flex flex-col justify-center items-start md:flex-row md:items-center md:justify-start pb-4 space-x-3 w-full">
             <Input class="max-w-sm w-full" placeholder="Filter Task..."
@@ -26,15 +26,14 @@
                 </DropdownMenu>
             </div> -->
 
-        <div
-            class="flex flex-col justify-center items-start md:flex-row md:items-center md:justify-start pb-4 space-x-3 w-full">
-            <div class="flex w-full md:hidden justify-between">
+        <div class="flex flex-col justify-center items-start @lg:flex-row pb-4 space-x-3 w-full">
+            <div class="flex w-full @lg:hidden justify-between ">
                 <Input class="max-w-sm w-full" placeholder="Filter Task..."
                     :model-value="table.getColumn('taskName')?.getFilterValue() as string"
                     @update:model-value=" table.getColumn('taskName')?.setFilterValue($event)" />
-                <div class="flex ">
+                <div class="flex w-full">
                     <DropdownMenu>
-                        <DropdownMenuTrigger as-child class="flex ml-3 md:ml-auto">
+                        <DropdownMenuTrigger as-child class="flex ml-auto">
                             <Button variant="outline">
                                 Columns
                                 <ChevronDown class="w-4 h-4 ml-2" />
@@ -53,13 +52,13 @@
                     </DropdownMenu>
                 </div>
             </div>
-            <Input class="max-w-sm  hidden w-full md:flex" placeholder="Filter Task..."
+            <Input class="max-w-sm hidden w-full @lg:w-fit @lg:flex" placeholder="Filter Task..."
                 :model-value="table.getColumn('taskName')?.getFilterValue() as string"
                 @update:model-value=" table.getColumn('taskName')?.setFilterValue($event)" />
-            <div class="md:flex pt-4 w-full md:pt-0">
+            <div class="flex pt-4 w-full @lg:pt-0">
                 <DataTableCombobox @status-change="handleStatusChange" @priority-change="handlePriorityChange">
                 </DataTableCombobox>
-                <div class="hidden md:block ml-3 md:ml-auto">
+                <div class="hidden @lg:flex ml-auto">
                     <DropdownMenu>
                         <DropdownMenuTrigger as-child>
                             <Button variant="outline">
@@ -113,7 +112,7 @@
             </Table>
         </div>
         <div class="flex md:items-center py-4 space-y-2 content-end">
-            <div class="flex-1 text-sm text-muted-foreground justify-end pt-1.5 md:pt-0">
+            <div class="text-sm text-muted-foreground justify-end pt-1.5 md:pt-0 text-nowrap">
                 {{ table.getFilteredSelectedRowModel().rows.length }} of
                 {{ table.getFilteredRowModel().rows.length }} row(s) selected.
             </div>

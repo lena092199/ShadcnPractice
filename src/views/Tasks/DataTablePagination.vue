@@ -22,12 +22,12 @@ defineProps<DataTablePaginationProps>()
 </script>
 
 <template>
-    <div class="flex items-center">
+    <div class="flex justify-end items-center @container w-full">
         <!-- <div class="flex-1 text-sm text-muted-foreground">
             {{ table.getFilteredSelectedRowModel().rows.length }} of
             {{ table.getFilteredRowModel().rows.length }} row(s) selected.
         </div> -->
-        <div class="flex-col flex md:flex-row md:items-center items-end gap-3 md:gap-4">
+        <div class="flex-col flex items-end @lg:flex-row lg:items-center @lg:justify-end gap-3 @lg:gap-6 ">
             <div class="flex items-center space-x-3 m-0">
                 <div class="flex items-center justify-center text-sm font-medium">
                     Page {{ table.getState().pagination.pageIndex + 1 }} of

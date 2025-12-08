@@ -171,8 +171,8 @@
                 </SidebarContent>
             </SidebarProvider>
         </div>
-        <div class="flex flex-col w-full">
-            <div class="flex justify-between pt-6 px-6">
+        <div class="flex flex-col w-full @container">
+            <div class="flex justify-between pt-6 @sm:px-6">
                 <div class="flex items-center space-x-4">
                     <TextAlignJustify class="cursor-pointer stroke-black/60" @click="sidebarVisible" />
                     <div class="bg-gray-100 rounded-lg p-1 flex box-border">

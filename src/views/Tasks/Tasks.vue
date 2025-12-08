@@ -1,6 +1,6 @@
 <template>
-    <div class="flex pt-4">
-        <div class="w-full">
+    <div class="flex pt-4 @container">
+        <div class="w-full @sm:flex">
             <div class="w-full">
                 <div class="flex w-full">
                     <SidebarTrigger class="ml-4 mr-2"></SidebarTrigger>
