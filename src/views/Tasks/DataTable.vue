@@ -1,27 +1,82 @@
 <template>
     <div>
-        <div class="flex items-center py-4 space-x-3">
-            <Input class="max-w-sm" placeholder="Filter Task..."
+        <div
+            class="flex flex-col justify-center items-start md:flex-row md:items-center md:justify-start pb-4 space-x-3 w-full">
+            <Input class="max-w-sm w-full" placeholder="Filter Task..."
                 :model-value="table.getColumn('taskName')?.getFilterValue() as string"
                 @update:model-value=" table.getColumn('taskName')?.setFilterValue($event)" />
-            <DataTableCombobox></DataTableCombobox>
-            <DropdownMenu>
-                <DropdownMenuTrigger as-child>
-                    <Button variant="outline" class="ml-auto">
-                        Columns
-                        <ChevronDown class="w-4 h-4 ml-2" />
-                    </Button>
-                </DropdownMenuTrigger>
-                <DropdownMenuContent align="end">
-                    <DropdownMenuCheckboxItem
-                        v-for="column in table.getAllColumns().filter((column) => column.getCanHide())" :key="column.id"
-                        class="capitalize" :modelValue="column.getIsVisible()" @update:modelValue="(value) => {
-                            column.toggleVisibility(!!value)
-                        }">
-                        {{ column.id }}
-                    </DropdownMenuCheckboxItem>
-                </DropdownMenuContent>
-            </DropdownMenu>
+            <div class="flex pt-4 w-full md:pt-0">
+                <DataTableCombobox></DataTableCombobox>
+                <DropdownMenu>
+                    <DropdownMenuTrigger as-child class="flex ml-auto">
+                        <Button variant="outline">
+                            Columns
+                            <ChevronDown class="w-4 h-4 ml-2" />
+                        </Button>
+                    </DropdownMenuTrigger>
+                    <DropdownMenuContent align="end">
+                        <DropdownMenuCheckboxItem
+                            v-for="column in table.getAllColumns().filter((column) => column.getCanHide())"
+                            :key="column.id" class="capitalize" :modelValue="column.getIsVisible()" @update:modelValue="(value) => {
+                                column.toggleVisibility(!!value)
+                            }">
+                            {{ column.id }}
+                        </DropdownMenuCheckboxItem>
+                    </DropdownMenuContent>
+                </DropdownMenu>
+            </div>
+
+            <!-- <div
+            class="flex flex-col justify-center items-start md:flex-row md:items-center md:justify-start pb-4 space-x-3 w-full">
+            <div class="flex w-full md:hidden">
+                <Input class="max-w-sm w-full" placeholder="Filter Task..."
+                    :model-value="table.getColumn('taskName')?.getFilterValue() as string"
+                    @update:model-value=" table.getColumn('taskName')?.setFilterValue($event)" />
+                <DropdownMenu>
+                    <DropdownMenuTrigger as-child class="flex ml-3 md:ml-auto">
+                        <Button variant="outline">
+                            Columns
+                            <ChevronDown class="w-4 h-4 ml-2" />
+                        </Button>
+                    </DropdownMenuTrigger>
+                    <DropdownMenuContent align="end">
+                        <DropdownMenuCheckboxItem
+                            v-for="column in table.getAllColumns().filter((column) => column.getCanHide())"
+                            :key="column.id" class="capitalize" :modelValue="column.getIsVisible()" @update:modelValue="(value) => {
+                                column.toggleVisibility(!!value)
+                            }">
+                            {{ column.id }}
+                        </DropdownMenuCheckboxItem>
+                    </DropdownMenuContent>
+                </DropdownMenu>
+            </div>
+            <Input class="max-w-sm w-full hidden md:flex" placeholder="Filter Task..."
+                :model-value="table.getColumn('taskName')?.getFilterValue() as string"
+                @update:model-value=" table.getColumn('taskName')?.setFilterValue($event)" />
+            <div class="flex pt-4 w-full md:pt-0">
+                <DataTableCombobox></DataTableCombobox>
+                <div class="hidden md:block ml-3 md:ml-auto">
+                    <DropdownMenu>
+                        <DropdownMenuTrigger as-child>
+                            <Button variant="outline">
+                                Columns
+                                <ChevronDown class="w-4 h-4 ml-2" />
+                            </Button>
+                        </DropdownMenuTrigger>
+                        <DropdownMenuContent align="end">
+                            <DropdownMenuCheckboxItem
+                                v-for="column in table.getAllColumns().filter((column) => column.getCanHide())"
+                                :key="column.id" class="capitalize" :modelValue="column.getIsVisible()"
+                                @update:modelValue="(value) => {
+                                    column.toggleVisibility(!!value)
+                                }">
+                                {{ column.id }}
+                            </DropdownMenuCheckboxItem>
+                        </DropdownMenuContent>
+                    </DropdownMenu>
+                </div>
+
+            </div>-->
         </div>
 
         <div class="border rounded-md">
@@ -53,8 +108,8 @@
                 </TableBody>
             </Table>
         </div>
-        <div class="flex items-center justify-end py-4 space-x-2">
-            <div class="flex-1 text-sm text-muted-foreground">
+        <div class="flex md:items-center py-4 space-y-2 content-end">
+            <div class="flex-1 text-sm text-muted-foreground justify-end pt-1.5 md:pt-0">
                 {{ table.getFilteredSelectedRowModel().rows.length }} of
                 {{ table.getFilteredRowModel().rows.length }} row(s) selected.
             </div>

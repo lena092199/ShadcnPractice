@@ -1,5 +1,5 @@
 <template>
-    <div class="flex pt-3">
+    <div class="flex pt-4">
         <div class="pl-2">
             <SidebarTrigger />
         </div>

@@ -1,5 +1,5 @@
 <template>
-    <div class="container py-10 mx-auto">
+    <div class="px-6 py-10">
         <DataTable :columns="columns" :data="data" />
     </div>
 </template>

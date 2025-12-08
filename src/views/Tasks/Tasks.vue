@@ -1,9 +1,9 @@
 <template>
-    <div class="flex pt-3">
-        <SidebarTrigger class="pl-4 mr-2"></SidebarTrigger>
-        <div class="pl-2 flex flex-col items-center w-full">
-            <div class="w-full mx-4">
+    <div class="flex pt-4">
+        <div class="w-full">
+            <div class="w-full">
                 <div class="flex w-full items-center">
+                    <SidebarTrigger class="ml-4 mr-2"></SidebarTrigger>
                     <div>
                         <h1 class="font-semibold text-xl">Welcome back!</h1>
                         <p class="text-muted-foreground">Here's a list of your tasks for this month!</p>

@@ -132,7 +132,7 @@
         </Menubar>
     </div>
     <div class="flex h-fit">
-        <div class="border-r lg:flex flex-col gap-0 w-65" :class="Visible ? 'flex' : 'hidden'">
+        <div class="border-r xl:flex flex-col gap-0 w-65" :class="Visible ? 'flex' : 'hidden'">
             <SidebarProvider class="h-full">
                 <SidebarContent class="gap-0 pl-1">
                     <SidebarGroup>
@@ -179,7 +179,7 @@
                         <RouterLink :to="item.url" class="bg-gray-100 flex items-center cursor-pointer text-sm px-1"
                             v-for="item in musicItems" :key="item.name">
                             <span class="p-1 rounded-lg text-gray-800" :class="MusicSub(item.url)">{{ item.name
-                            }}</span>
+                                }}</span>
                         </RouterLink>
                     </div>
                 </div>

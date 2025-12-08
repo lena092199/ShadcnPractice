@@ -1,69 +1,73 @@
 <template>
-    <Popover v-model:open="open">
-        <PopoverTrigger as-child>
-            <Button variant="outline">
-                <CirclePlus></CirclePlus>
-                Status
-                <Separator orientation="vertical"></Separator>
-                <span class="bg-gray-200 px-1 rounded-sm" v-for="status in SelectStatus" :key="status.id">{{ status.name
+    <div class="flex gap-3">
+        <Popover v-model:open="open">
+            <PopoverTrigger as-child>
+                <Button variant="outline">
+                    <CirclePlus></CirclePlus>
+                    Status
+                    <Separator orientation="vertical"></Separator>
+                    <span class="bg-gray-200 px-1 rounded-sm" v-for="status in SelectStatus" :key="status.id">{{
+                        status.name
                     }}</span>
-            </Button>
-        </PopoverTrigger>
-        <PopoverContent class="w-[200px] p-0" align="start">
-            <Command>
-                <CommandInput placeholder="Status" class="h-9"></CommandInput>
-                <CommandList>
-                    <CommandEmpty>No Status</CommandEmpty>
-                    <CommandGroup>
-                        <CommandItem v-for="option in statusOptions" :key="option.id" class="items-center flex"
-                            @select.capture="() => {
-                                selectStatus(option.name)
-                            }">
-                            <Checkbox class="border-black/50" v-model="option.status">
-                            </Checkbox>
-                            <component :is="option.icon" class="stroke-[1.5] ml-2" />
-                            <Label>{{ option.name }}</Label>
-                        </CommandItem>
-                    </CommandGroup>
-                    <CommandSeparator></CommandSeparator>
-                    <CommandGroup>
-                        <CommandItem class="flex justify-center">
-                            Clear filters
-                        </CommandItem>
-                    </CommandGroup>
-                </CommandList>
-            </Command>
-        </PopoverContent>
-    </Popover>
+                </Button>
+            </PopoverTrigger>
+            <PopoverContent class="w-[200px] p-0" align="start">
+                <Command>
+                    <CommandInput placeholder="Status" class="h-9"></CommandInput>
+                    <CommandList>
+                        <CommandEmpty>No Status</CommandEmpty>
+                        <CommandGroup>
+                            <CommandItem v-for="option in statusOptions" :key="option.id" class="items-center flex"
+                                @select.capture="() => {
+                                    selectStatus(option.name)
+                                }">
+                                <Checkbox class="border-black/50" v-model="option.status">
+                                </Checkbox>
+                                <component :is="option.icon" class="stroke-[1.5] ml-2" />
+                                <Label>{{ option.name }}</Label>
+                            </CommandItem>
+                        </CommandGroup>
+                        <CommandSeparator></CommandSeparator>
+                        <CommandGroup>
+                            <CommandItem class="flex justify-center">
+                                Clear filters
+                            </CommandItem>
+                        </CommandGroup>
+                    </CommandList>
+                </Command>
+            </PopoverContent>
+        </Popover>
 
-    <Popover v-model:open="open1">
-        <PopoverTrigger>
-            <Button variant="outline">
-                <CirclePlus></CirclePlus>
-                Priority
-                <Separator orientation="vertical"></Separator>
-            </Button>
-        </PopoverTrigger>
-        <PopoverContent class="w-[200px] p-0">
-            <Command>
-                <CommandInput placeholder="Priority" class="h-9"></CommandInput>
-                <CommandList>
-                    <CommandEmpty>No Priority</CommandEmpty>
-                    <CommandGroup>
-                        <CommandItem v-for="option in priorityOptions" :key="option.id" class="items-center flex"
-                            @select.stop="(ev) => {
-                                selectPriority(ev.detail.value as string)
-                            }">
-                            <Checkbox class="border-black/50" :id="`status-${option.id}`">
-                            </Checkbox>
-                            <component :is="option.icon" class="stroke-[1.5] ml-2" />
-                            <Label :for="`status-${option.id}`">{{ option.name }}</Label>
-                        </CommandItem>
-                    </CommandGroup>
-                </CommandList>
-            </Command>
-        </PopoverContent>
-    </Popover>
+        <Popover v-model:open="open1">
+            <PopoverTrigger>
+                <Button variant="outline">
+                    <CirclePlus></CirclePlus>
+                    Priority
+                    <Separator orientation="vertical"></Separator>
+                </Button>
+            </PopoverTrigger>
+            <PopoverContent class="w-[200px] p-0">
+                <Command>
+                    <CommandInput placeholder="Priority" class="h-9"></CommandInput>
+                    <CommandList>
+                        <CommandEmpty>No Priority</CommandEmpty>
+                        <CommandGroup>
+                            <CommandItem v-for="option in priorityOptions" :key="option.id" class="items-center flex"
+                                @select.stop="(ev) => {
+                                    selectPriority(ev.detail.value as string)
+                                }">
+                                <Checkbox class="border-black/50" :id="`status-${option.id}`">
+                                </Checkbox>
+                                <component :is="option.icon" class="stroke-[1.5] ml-2" />
+                                <Label :for="`status-${option.id}`">{{ option.name }}</Label>
+                            </CommandItem>
+                        </CommandGroup>
+                    </CommandList>
+                </Command>
+            </PopoverContent>
+        </Popover>
+    </div>
+
 </template>
 
 <script setup lang="ts">
