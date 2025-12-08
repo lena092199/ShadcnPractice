@@ -104,7 +104,7 @@
                     </template>
                     <template v-else>
                         <TableRow>
-                            <TableCell :colspan="columns.length" class="h-24 text-center">
+                            <TableCell :colspan="props.columns.length" class="h-24 text-center">
                                 No results.
                             </TableCell>
                         </TableRow>
@@ -133,8 +133,9 @@
 
 </template>
 
-<script setup lang="ts" generic="TData, TValue">//占位，ts的泛型类型，用于说这里是一个数据或是值
+<script setup lang="ts">
 import type { ColumnDef, SortingState, ColumnFiltersState, VisibilityState, } from '@tanstack/vue-table'
+import type { Task } from './TasksData.vue'
 import DataTablePagination from './DataTablePagination.vue'
 import DataTableCombobox from './DataTableCombobox.vue'
 import { ChevronDown } from 'lucide-vue-next'
@@ -165,21 +166,31 @@ import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
 import { ref, computed } from 'vue'
 
+const props = defineProps<{
+    columns: ColumnDef<Task>[]
+    data: Task[]
+}>()
+
 const statusFilter = ref<string[]>([])
 const priorityFilter = ref<string[]>([])
 
 // 添加事件处理函数
 const handleStatusChange = (statuses: string[]) => {
-    console.log("status被调用", statuses);
+    console.log("========== DataTable handleStatusChange 被调用 ==========");
+    console.log("收到的 statuses:", statuses);
+    console.log("statusFilter 改变前:", statusFilter.value);
     statusFilter.value = statuses
+    console.log("statusFilter 改变后:", statusFilter.value);
 }
 
 const handlePriorityChange = (priorities: string[]) => {
-    console.log("priority被调用", priorities);
+    console.log("========== DataTable handlePriorityChange 被调用 ==========");
+    console.log("收到的 priorities:", priorities);
+    console.log("priorityFilter 改变前:", priorityFilter.value);
     priorityFilter.value = priorities
+    console.log("priorityFilter 改变后:", priorityFilter.value);
 }
 
-// 计算筛选后的数据：当 statusFilter 或 priorityFilter 改变时，自动重新计算
 const filteredData = computed(() => {
     console.log('计算 filteredData, 当前 statusFilter:', statusFilter.value, '当前 priorityFilter:', priorityFilter.value)
 
@@ -187,7 +198,7 @@ const filteredData = computed(() => {
         return props.data
     }
 
-    return props.data.filter((item: any) => {
+    return props.data.filter((item: Task) => {
         const statusMatch = statusFilter.value.length === 0 ||
             statusFilter.value.includes(item.status)
         const priorityMatch = priorityFilter.value.length === 0 ||
@@ -195,11 +206,6 @@ const filteredData = computed(() => {
         return statusMatch && priorityMatch
     })
 })
-
-const props = defineProps<{  //告诉外部我需要这些参数
-    columns: ColumnDef<TData, TValue>[]
-    data: TData[]
-}>()
 
 const sorting = ref<SortingState>([])
 const columnFilters = ref<ColumnFiltersState>([])
@@ -224,6 +230,5 @@ const table = useVueTable({
         get rowSelection() { return rowSelection.value },
     },
 })
-
 
 </script>

@@ -7,14 +7,14 @@
                     Status
                     <template v-if="typeof checkStatus === 'number'">
                         <Separator orientation="vertical"></Separator>
-                        <span class="bg-gray-100 px-1 rounded-sm">
+                        <span class="bg-gray-100 px-2 rounded-sm">
                             +{{ checkStatus }}
                         </span>
                     </template>
                     <template v-if="SelectStatus.length > 0 && SelectStatus.length < 2">
                         <Separator orientation="vertical"></Separator>
                         <span v-for="statusName in checkStatus" :key="statusName"
-                            class="bg-gray-100 px-1 rounded-sm mr-1">
+                            class="bg-gray-100 px-2 rounded-sm mr-1">
                             {{ statusName }}
                         </span>
                     </template>
@@ -26,11 +26,13 @@
                     <CommandList>
                         <CommandEmpty>No Status</CommandEmpty>
                         <CommandGroup>
-                            <CommandItem v-for="option in statusOptions" :key="option.id" class="items-center flex"
-                                @select.capture="() => {
+                            <CommandItem v-for="option in statusOptions" :key="option.id" :value="option.name"
+                                class="items-center flex" @select="() => {
                                     selectStatus(option.name)
                                 }">
-                                <Checkbox class="border-black/80" v-model="option.status">
+                                <Checkbox class="border-black/80" v-model="option.status" @update:modelValue="() => {
+                                    selectStatus(option.name)
+                                }">
                                 </Checkbox>
                                 <component :is="option.icon" class="stroke-[1.5] ml-2" />
                                 <Label>{{ option.name }}</Label>
@@ -38,7 +40,7 @@
                         </CommandGroup>
                         <CommandSeparator></CommandSeparator>
                         <CommandGroup>
-                            <CommandItem class="flex justify-center" @click="clearFilterStatus">
+                            <CommandItem value="clear-status" class="flex justify-center" @select="clearFilterStatus">
                                 Clear Status
                             </CommandItem>
                         </CommandGroup>
@@ -54,14 +56,14 @@
                     Priority
                     <template v-if="typeof checkPriority === 'number'">
                         <Separator orientation="vertical"></Separator>
-                        <span class="bg-gray-100 px-1 rounded-sm">
+                        <span class="bg-gray-100 px-2 rounded-sm">
                             +{{ checkPriority }}
                         </span>
                     </template>
                     <template v-if="SelectPriority.length > 0 && SelectPriority.length < 2">
                         <Separator orientation="vertical"></Separator>
                         <span v-for="statusName in checkPriority" :key="statusName"
-                            class="bg-gray-100 px-1 rounded-sm mr-1">
+                            class="bg-gray-100 px-2 rounded-sm mr-1">
                             {{ statusName }}
                         </span>
                     </template>
@@ -73,11 +75,13 @@
                     <CommandList>
                         <CommandEmpty>No Priority</CommandEmpty>
                         <CommandGroup>
-                            <CommandItem v-for="option in priorityOptions" :key="option.id" class="items-center flex"
-                                @select.capture="() => {
+                            <CommandItem v-for="option in priorityOptions" :key="option.id" :value="option.name"
+                                class="items-center flex" @select="() => {
                                     selectPriority(option.name)
                                 }">
-                                <Checkbox class="border-black/80" v-model="option.status">
+                                <Checkbox class="border-black/80" v-model="option.status" @update:modelValue="() => {
+                                    selectPriority(option.name)
+                                }">
                                 </Checkbox>
                                 <component :is="option.icon" class="stroke-[1.5] ml-2" />
                                 <Label>{{ option.name }}</Label>
@@ -85,7 +89,8 @@
                         </CommandGroup>
                         <CommandSeparator></CommandSeparator>
                         <CommandGroup>
-                            <CommandItem class="flex justify-center" @click="clearFilterPriority">
+                            <CommandItem value="clear-priority" class="flex justify-center"
+                                @select="clearFilterPriority">
                                 Clear Priority
                             </CommandItem>
                         </CommandGroup>
@@ -98,7 +103,6 @@
 </template>
 
 <script setup lang="ts">
-import { CheckIcon, ChevronsUpDownIcon, Option } from 'lucide-vue-next'
 import Separator from '@/components/ui/separator/Separator.vue'
 import { computed, ref } from 'vue'
 import { Eclipse, CircleQuestionMark, Circle, CirclePlus, CircleX, ArrowRight, ArrowDown, ArrowUp } from 'lucide-vue-next';
@@ -121,21 +125,13 @@ import Checkbox from '@/components/ui/checkbox/Checkbox.vue'
 import Label from '@/components/ui/label/Label.vue';
 
 const clearFilterStatus = () => {
-    statusOptions.value.forEach((sOption) => {
-        if (sOption.status === true) {
-            sOption.status = !sOption.status
-        }
-        console.log(sOption.name, sOption.status);
-    })
+    statusOptions.value.forEach(option => option.status = false)
+    emit('status-change', [])
 }
 
 const clearFilterPriority = () => {
-    priorityOptions.value.forEach((sOption) => {
-        if (sOption.status === true) {
-            sOption.status = !sOption.status
-        }
-        console.log(sOption.name, sOption.status);
-    })
+    priorityOptions.value.forEach(option => option.status = false)
+    emit('priority-change', [])
 }
 
 const open = ref(false)
