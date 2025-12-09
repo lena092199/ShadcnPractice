@@ -1,31 +1,5 @@
 <template>
     <div class="@container w-full">
-        <!-- <div
-            class="flex flex-col justify-center items-start md:flex-row md:items-center md:justify-start pb-4 space-x-3 w-full">
-            <Input class="max-w-sm w-full" placeholder="Filter Task..."
-                :model-value="table.getColumn('taskName')?.getFilterValue() as string"
-                @update:model-value=" table.getColumn('taskName')?.setFilterValue($event)" /> -->
-        <!-- <div class="flex pt-4 w-full md:pt-0">
-                <DataTableCombobox></DataTableCombobox>
-                <DropdownMenu>
-                    <DropdownMenuTrigger as-child class="flex ml-auto">
-                        <Button variant="outline">
-                            Columns
-                            <ChevronDown class="w-4 h-4 ml-2" />
-                        </Button>
-                    </DropdownMenuTrigger>
-                    <DropdownMenuContent align="end">
-                        <DropdownMenuCheckboxItem
-                            v-for="column in table.getAllColumns().filter((column) => column.getCanHide())"
-                            :key="column.id" class="capitalize" :modelValue="column.getIsVisible()" @update:modelValue="(value) => {
-                                column.toggleVisibility(!!value)
-                            }">
-                            {{ column.id }}
-                        </DropdownMenuCheckboxItem>
-                    </DropdownMenuContent>
-                </DropdownMenu>
-            </div> -->
-
         <div class="flex flex-col justify-center items-start @lg:flex-row pb-4 space-x-3 w-full">
             <div class="flex w-full @lg:hidden justify-between ">
                 <Input class="max-w-sm w-full" placeholder="Filter Task..."
@@ -117,19 +91,8 @@
                 {{ table.getFilteredRowModel().rows.length }} row(s) selected.
             </div>
             <DataTablePagination :table="table" />
-            <!-- <div class="space-x-2">
-                <Button variant="outline" size="sm" :disabled="!table.getCanPreviousPage()"
-                    @click="table.previousPage()">
-                    Previous
-                </Button>
-                <Button variant="outline" size="sm" :disabled="!table.getCanNextPage()" @click="table.nextPage()">
-                    Next
-                </Button>
-            </div> -->
         </div>
     </div>
-
-
 </template>
 
 <script setup lang="ts">
@@ -229,5 +192,4 @@ const table = useVueTable({
         get rowSelection() { return rowSelection.value },
     },
 })
-
 </script>

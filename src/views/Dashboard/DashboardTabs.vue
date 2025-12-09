@@ -47,6 +47,7 @@
         </TabsContent>
     </Tabs>
 </template>
+
 <script setup>
 import DashboardChart from './DashboardChart.vue'
 import { ref } from 'vue'

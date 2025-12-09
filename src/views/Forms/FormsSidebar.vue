@@ -16,7 +16,6 @@
                         </SidebarMenu>
                     </SidebarContent>
                 </Sidebar>
-
             </div>
             <div class="w-full pr-10 xl:pr-60 pb-4">
                 <RouterView></RouterView>
@@ -41,8 +40,8 @@
             </Tabs>
         </div>
     </div>
-
 </template>
+
 <script setup>
 import { Sidebar, SidebarContent, SidebarMenu, SidebarMenuItem, SidebarMenuButton } from '@/components/ui/sidebar';
 import { ref } from 'vue'

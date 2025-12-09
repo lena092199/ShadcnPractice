@@ -5,7 +5,6 @@ import { ChevronLeft } from 'lucide-vue-next'
 import { ChevronRight } from 'lucide-vue-next'
 import { ChevronsLeft } from 'lucide-vue-next'
 import { ChevronsRight } from 'lucide-vue-next'
-
 import { Button } from '@/components/ui/button'
 import {
     Select,
@@ -23,10 +22,6 @@ defineProps<DataTablePaginationProps>()
 
 <template>
     <div class="flex justify-end items-center @container w-full">
-        <!-- <div class="flex-1 text-sm text-muted-foreground">
-            {{ table.getFilteredSelectedRowModel().rows.length }} of
-            {{ table.getFilteredRowModel().rows.length }} row(s) selected.
-        </div> -->
         <div class="flex-col flex items-end @lg:flex-row lg:items-center @lg:justify-end gap-3 @lg:gap-6 ">
             <div class="flex items-center space-x-3 m-0">
                 <div class="flex items-center justify-center text-sm font-medium">
@@ -72,8 +67,6 @@ defineProps<DataTablePaginationProps>()
                     </SelectContent>
                 </Select>
             </div>
-
-
         </div>
     </div>
 </template>

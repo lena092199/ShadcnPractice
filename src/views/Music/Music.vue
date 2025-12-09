@@ -179,7 +179,7 @@
                         <RouterLink :to="item.url" class="bg-gray-100 flex items-center cursor-pointer text-sm px-1"
                             v-for="item in musicItems" :key="item.name">
                             <span class="p-1 rounded-lg text-gray-800" :class="MusicSub(item.url)">{{ item.name
-                            }}</span>
+                                }}</span>
                         </RouterLink>
                     </div>
                 </div>
@@ -192,9 +192,8 @@
             </div>
         </div>
     </div>
-
-
 </template>
+
 <script setup>
 import { SidebarProvider, Sidebar, SidebarHeader, SidebarGroup, SidebarContent, SidebarMenu, SidebarMenuButton, SidebarMenuItem, SidebarGroupLabel } from '@/components/ui/sidebar';
 import listen from '@/assets/Music/Nav/listen.svg';

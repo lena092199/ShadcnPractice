@@ -22,11 +22,9 @@
                 <RouterView></RouterView>
             </div>
         </div>
-
     </SidebarProvider>
-
-
 </template>
+
 <script setup>
 import { SidebarProvider, SidebarTrigger, Sidebar, SidebarHeader, SidebarContent, } from '@/components/ui/sidebar'
 import { SidebarMenu, SidebarMenuItem, SidebarMenuButton, SidebarInset } from '@/components/ui/sidebar'
@@ -68,4 +66,4 @@ const route = useRoute()
 const activeNav = (url) => {
     return route.path.startsWith(url)
 }
-</script>s
+</script>

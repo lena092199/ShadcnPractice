@@ -19,7 +19,8 @@
             <div class="flex items-center w-full h-full justify-center">
                 <Card class="w-full max-w-sm">
                     <CardHeader class="w-full">
-                        <CardTitle class="w-full text-2xl flex justify-center cursor-default">Create an account
+                        <CardTitle class="w-full text-2xl flex justify-center cursor-default">
+                            Create an account
                         </CardTitle>
                         <CardDescription class="text-zinc-500 flex justify-center cursor-default">
                             Enter your email below to create your account
@@ -52,8 +53,8 @@
 
         </div>
     </div>
-
 </template>
+
 <script setup>
 import Button from '@/components/ui/button/Button.vue';
 import { Card, CardHeader, CardTitle, CardDescription, CardContent, CardFooter } from '@/components/ui/card';

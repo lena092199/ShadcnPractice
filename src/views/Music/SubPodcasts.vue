@@ -5,8 +5,6 @@
         <div class="border-b my-4 border-gray-300"></div>
         <div class="pt-2 mb-5 border-dashed border rounded-lg border-gray-300 h-full">
             <div class="flex flex-col h-full items-center justify-center gap-3">
-                <!-- <img src="D:\jifang\5demo\demo-Vue3\vue-shadcn\public\icons\icon.svg" alt="Podcasts"
-                    class="w-10 stroke-1 stroke-red-100 fill-red"> -->
                 <svg data-v-16ede74f="" xmlns="http://www.w3.org/2000/svg" fill="none" strokeLinecap="round"
                     strokeLinejoin="round" strokeWidth="1.5" class="h-w-1 color-u" viewBox="0 0 24 24"
                     :class="'w-10 stroke-zinc-500'">

@@ -39,9 +39,8 @@
                 <Checkbox></Checkbox>
                 <div class="flex flex-col gap-2">
                     <Label>Use different settings for my mobile devices</Label>
-                    <p class="text-muted-foreground text-sm">You can manage your mobile notifications in the mobile
-                        settings
-                        page.</p>
+                    <p class="text-muted-foreground text-sm">
+                        You can manage your mobile notifications in the mobile settings page.</p>
                 </div>
             </div>
         </Field>

@@ -3,9 +3,6 @@ import type { Column } from '@tanstack/vue-table'
 import { type Task } from './TasksData.vue'
 import { ArrowDown } from 'lucide-vue-next'
 import { ArrowUp } from 'lucide-vue-next'
-// import { CaretSort } from 'lucide-vue-next'
-// import { EyeNone } from 'lucide-vue-next'
-
 import { cn } from '@/lib/utils'
 import { Button } from '@/components/ui/button'
 import {

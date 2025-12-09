@@ -48,15 +48,10 @@
                 </div>
                 <DataDataTable></DataDataTable>
             </div>
-
         </div>
-
     </div>
-
-
-
-
 </template>
+
 <script setup>
 import { Avatar, AvatarImage } from '@/components/ui/avatar';
 import { SidebarTrigger } from '@/components/ui/sidebar';
