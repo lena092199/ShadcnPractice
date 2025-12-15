@@ -19,7 +19,6 @@
                             </span>
                         </DropdownMenuItem>
                     </DropdownMenuGroup>
-
                 </DropdownMenuContent>
             </DropdownMenu>
         </div>
@@ -29,7 +28,6 @@
                 <AvatarImage src="https://www.shadcn-vue.com/avatars/01.png"></AvatarImage>
             </Avatar>
         </div>
-
     </div>
     <div class="p-5 flex flex-col gap-3">
         <div class="flex flex-col">
@@ -48,9 +46,9 @@
 </template>
 
 <script setup>
-import DashboardAlicia from './DashboardAlicia.vue'
-import DashboardTabs from './DashboardTabs.vue';
-import DashboardRangeCalendar from './DashbpardRangeCalendar.vue'
+import DashboardAlicia from './DashBoardAlicia.vue'
+import DashboardTabs from './DashBoardTabs.vue';
+import DashboardRangeCalendar from './DashBoardRangeCalendar.vue'
 import Button from '@/components/ui/button/Button.vue';
 import { DropdownMenu, DropdownMenuTrigger, DropdownMenuContent, DropdownMenuItem, DropdownMenuGroup } from '@/components/ui/dropdown-menu';
 import { List } from 'lucide-vue-next';
