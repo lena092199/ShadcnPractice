@@ -1,13 +1,10 @@
 <script setup lang="ts">
-// import AppSidebar from './views/AppSidebar.vue';
-import Authtication from './views/Authtication.vue';
+import Authentication from './views/Authentication.vue';
 </script>
 
 <template>
-  <!-- <div> -->
-  <Authtication></Authtication>
-  <!-- <AppSidebar /> -->
-  <!-- </div> -->
+  <!-- <Authentication></Authentication> -->
+  <router-view />
 </template>
 
 <style scoped>

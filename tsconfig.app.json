@@ -5,14 +5,6 @@
     "types": [
       "vite/client"
     ],
-    // "types": [
-    //   "node",
-    //   "vite/client"
-    // ],
-    // "typeRoots": [
-    //   "./node_modules/@types",
-    //   "./src/types"
-    // ],
     "baseUrl": ".",
     "paths": {
       "@/*": [

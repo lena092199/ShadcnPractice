@@ -66,37 +66,16 @@ import { useRouter, useRoute } from 'vue-router';
 const email = ref('');
 const router = useRouter();
 const route = useRoute();
-// const handleSubmit = () => {
-//     if (email.value === '1614') {
-//         console.log('跳转前', route.path);
-//         router.push('/main').catch((err) => {
-//             console.error('导航发生错误', err);
-//         });
-//         console.log('跳转后', route.path);
-//     } else {
-//         alert('Invalid email address');
-//     }
-// };
-
-const handleSubmit = () => {
+const handleSubmit = async () => {
     if (email.value === '1614') {
-        const currentPath = route.path;
-        const targetPath = '/main';
+        console.log('跳转前', route.path);
 
-        console.log('跳转前', currentPath);
-
-        // 只有当前路由不是目标路由时才跳转
-        if (currentPath !== targetPath) {
-            router.push(targetPath).catch((err) => {
-                console.error('导航发生错误', err);
-            });
-        } else {
-            console.log('已经在目标路由，无需跳转');
-            // 可以在这里执行刷新页面数据的操作
-            // router.go(0); // 或者刷新数据
+        try {
+            await router.push('/main/tasks');
+            console.log("跳转后（异步）", route.path);
+        } catch (err) {
+            console.error('导航发生错误', err);
         }
-
-        console.log('跳转后', route.path);
     } else {
         alert('Invalid email address');
     }

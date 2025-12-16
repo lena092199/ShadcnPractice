@@ -234,8 +234,8 @@ const getMusicSub = (url) => {
 }
 
 let musicItems = [
-    { name: 'Music', url: "/music/sub-music" },
-    { name: 'Podcasts', url: "/music/sub-podcasts" },
+    { name: 'Music', url: "/main/music/sub-music" },
+    { name: 'Podcasts', url: "/main/music/sub-podcasts" },
     { name: 'Live', url: "#" }
 ]
 

@@ -1,25 +1,22 @@
 import { createRouter, createWebHistory } from 'vue-router';
-import AppSidebar from '@/views/AppSidebar.vue';
 
-const route = createRouter({
+const router = createRouter({
     history: createWebHistory(),
     routes: [
         {
             name: 'default',
             path: "/",
-            // redirect: { name: 'Authentication' }
-            // component: () => import('@/views/AppSidebar.vue')
-            component: () => import('@/views/Authtication.vue')
+            redirect: { name: 'Authentication' },
         },
-        // {
-        //     name: 'Authentication',
-        //     path: 'authentication',
-        //     component: () => import('@/views/Authtication.vue')
-        // },
+        {
+            name: 'Authentication',
+            path: '/authentication',
+            component: () => import('@/views/Authentication.vue'),
+        },
         {
             name: 'Main',
             path: '/main',
-            component: AppSidebar,
+            component: () => import('@/views/AppSidebar.vue'),
             children: [
                 {
                     name: 'Tasks',
@@ -90,10 +87,13 @@ const route = createRouter({
                         }
                     ]
                 },
-
+                {
+                    name: 'SubAuthentication',
+                    path: 'sub-authentication',
+                    component: () => import('@/views/Authentication.vue'),
+                },
             ]
         },
     ]
 })
-
-export default route;
+export default router;

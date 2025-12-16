@@ -27,7 +27,6 @@ defineProps<IProps>();
                     <img :src="item.icon" alt="MusicIcon"
                         :class="`rounded-lg cursor-pointer hover:scale-105 overflow-hidden  ${item.w} ${item.h}`">
                 </div>
-
                 <div class="pt-2">{{ item.music }}</div>
                 <div class="text-xs text-zinc-400 pb-2">{{ item.author }}</div>
             </div>

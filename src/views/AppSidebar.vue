@@ -54,11 +54,11 @@ const items = ref(
             url: "/main/dashboard",
             icon: Calendar,
         },
-        {
-            title: "Authentication",
-            url: "/main/authentication",
-            icon: Key,
-        }
+        // {
+        //     title: "Authentication",
+        //     url: "/main/authentication",
+        //     icon: Key,
+        // }
     ]
 )
 
