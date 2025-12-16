@@ -30,34 +30,34 @@ import { SidebarProvider, SidebarTrigger, Sidebar, SidebarHeader, SidebarContent
 import { SidebarMenu, SidebarMenuItem, SidebarMenuButton, SidebarInset } from '@/components/ui/sidebar'
 import { Calendar, Home, Inbox, Disc3, Key } from 'lucide-vue-next'
 import { RouterLink, RouterView, useRoute } from 'vue-router'
-import { ref } from 'vue';
+import { ref, watch } from 'vue';
 const items = ref(
     [
         {
-            title: "Authentication",
-            url: "/authentication",
-            icon: Key,
-        },
-        {
             title: "Tasks",
-            url: "/tasks",
+            url: "/main/tasks",
             icon: Home,
         },
         {
             title: "Forms",
-            url: "/forms",
+            url: "/main/forms",
             icon: Inbox,
             bg: false
         },
         {
             title: "Music",
-            url: "/music",
+            url: "/main/music",
             icon: Disc3,
         },
         {
             title: "Dashboard",
-            url: "/dashboard",
+            url: "/main/dashboard",
             icon: Calendar,
+        },
+        {
+            title: "Authentication",
+            url: "/main/authentication",
+            icon: Key,
         }
     ]
 )
@@ -66,4 +66,8 @@ const route = useRoute()
 const activeNav = (url) => {
     return route.path.startsWith(url)
 }
+
+watch(() => route.path, (newPath, oldPath) => {
+    console.log(`路由从${oldPath}变化到${newPath}`);
+});
 </script>

@@ -1,4 +1,4 @@
-<script lang="ts">
+// <script setup lang="ts">
 // 定义数据类型和数据
 export interface Task {
     id: number
@@ -811,4 +811,4 @@ export const tasksData: Task[] = [
         priority: 'Medium'
     }
 ]
-</script>
+// </script>

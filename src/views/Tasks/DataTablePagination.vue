@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { type Table } from '@tanstack/vue-table'
-import { type Task } from './TasksData.vue'
+import { type Task } from './TasksData.ts'
 import { ChevronLeft } from 'lucide-vue-next'
 import { ChevronRight } from 'lucide-vue-next'
 import { ChevronsLeft } from 'lucide-vue-next'

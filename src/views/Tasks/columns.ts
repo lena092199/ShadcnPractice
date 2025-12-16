@@ -1,5 +1,5 @@
 import type { ColumnDef } from '@tanstack/vue-table'
-import type { Task } from './TasksData.vue'
+import type { Task } from './TasksData.ts'
 import { h } from 'vue'
 import DropdownAction from './DataTableDropDown.vue'
 import Button from '@/components/ui/button/Button.vue'

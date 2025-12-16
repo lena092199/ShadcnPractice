@@ -5,8 +5,8 @@
 </template>
 
 <script setup lang="ts">
-import { type Task } from './TasksData.vue'
-import { tasksData } from './TasksData.vue'
+import { type Task } from './TasksData.ts'
+import { tasksData } from './TasksData.ts'
 import { onMounted, ref } from 'vue'
 import { columns } from './columns'
 import DataTable from './DataTable.vue'

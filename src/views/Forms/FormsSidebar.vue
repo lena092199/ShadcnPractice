@@ -98,7 +98,6 @@ const navigateToTab = (tabValue) => {
         router.push({ name: item.url })
     }
 }
-
 </script>
 
 <style scoped>

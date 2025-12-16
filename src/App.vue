@@ -1,11 +1,13 @@
 <script setup lang="ts">
-import AppSidebar from './views/AppSidebar.vue';
+// import AppSidebar from './views/AppSidebar.vue';
+import Authtication from './views/Authtication.vue';
 </script>
 
 <template>
-  <div>
-    <AppSidebar />
-  </div>
+  <!-- <div> -->
+  <Authtication></Authtication>
+  <!-- <AppSidebar /> -->
+  <!-- </div> -->
 </template>
 
 <style scoped>

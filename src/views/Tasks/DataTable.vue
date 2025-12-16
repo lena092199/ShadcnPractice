@@ -97,7 +97,7 @@
 
 <script setup lang="ts">
 import type { ColumnDef, SortingState, ColumnFiltersState, VisibilityState, } from '@tanstack/vue-table'
-import type { Task } from './TasksData.vue'
+import type { Task } from './TasksData.ts'
 import DataTablePagination from './DataTablePagination.vue'
 import DataTableCombobox from './DataTableCombobox.vue'
 import { ChevronDown } from 'lucide-vue-next'
