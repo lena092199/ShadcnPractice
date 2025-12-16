@@ -16,7 +16,7 @@
             <div>
                 <Popover v-slot="{ close }">
                     <div>
-                        <PopoverTrigger as-child class="w50">
+                        <PopoverTrigger as-child class="w-50">
                             <Button variant="outline" class="flex gap-3" :class="{ 'text-muted-foreground': !date }">
                                 <CalendarIcon />
                                 {{ date ? df.format(date.toDate(getLocalTimeZone())) : "Pick a date" }}
@@ -34,12 +34,12 @@
             <FieldError v-show="dataError">Please select a valid date.</FieldError>
         </Field>
         <Field>
-            <FieldLabel :class="{ 'text-red-600': lgError }">Language</FieldLabel>
+            <FieldLabel :class="{ 'text-red-600': languageError }">Language</FieldLabel>
             <div>
-                <FormsSelectLg v-model="lg" @update:model-value="ValidateLg" />
+                <FormsSelectLg v-model="language" @update:model-value="Validatelanguage" />
             </div>
             <FieldDescription>This is the language that will be used in the dashboard.</FieldDescription>
-            <FieldError v-show="lgError">Required</FieldError>
+            <FieldError v-show="languageError">Required</FieldError>
         </Field>
         <Field orientation="responsive">
             <Button @click="Update">Update account</Button>
@@ -69,7 +69,7 @@ import {
 import { Input } from '@/components/ui/input';
 import { Button } from '@/components/ui/button';
 import { ref, type Ref } from 'vue'
-import FormsSelectLg from '@/views/Forms/FormsSelectLg.vue'
+import FormsSelectLg from '@/views/forms/FormsSelectLg.vue'
 const date = ref() as Ref<DateValue>
 const df = new DateFormatter('en-US', {
     dateStyle: 'long',
@@ -97,28 +97,23 @@ const ValidateData = (newDate?: DateValue) => {
 }
 
 // lg
-const lgError = ref(false)
-const lg = ref('')
+const languageError = ref(false)
+const language = ref('')
 
-const ValidateLg = (value?: string) => {
+const Validatelanguage = (value?: string) => {
     if (value != undefined) {
-        lg.value = value
+        language.value = value
     }
-    if (!lg.value) {
-        lgError.value = true
+    if (!language.value) {
+        languageError.value = true
     } else {
-        lgError.value = false
+        languageError.value = false
     }
 }
 
 const Update = () => {
     ValidateName()
     ValidateData()
-    ValidateLg()
+    Validatelanguage()
 }
 </script>
-<style scoped>
-.w50 {
-    width: 200px;
-}
-</style>

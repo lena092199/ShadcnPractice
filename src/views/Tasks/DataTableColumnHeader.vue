@@ -13,12 +13,12 @@ import {
     DropdownMenuTrigger,
 } from '@/components/ui/dropdown-menu'
 
-interface DataTableColumnHeaderProps {
+interface IDataTableColumnHeaderProps {
     column: Column<Task, any>
     title: string
 }
 
-defineProps<DataTableColumnHeaderProps>()
+defineProps<IDataTableColumnHeaderProps>()
 </script>
 
 <script lang="ts">

@@ -49,7 +49,7 @@
 </template>
 
 <script setup>
-import DashboardChart from './DashboardChart.vue'
+import DashboardChart from './DashBoardChart.vue'
 import { ref } from 'vue'
 import {
     Tabs,

@@ -27,11 +27,6 @@
                     <TabsTrigger v-for="item in FormsSidebar" :key="item.id" :value="item.value">
                         {{ item.content }}
                     </TabsTrigger>
-                    <!-- <TabsTrigger value="priority">Priority</TabsTrigger>
-                <TabsTrigger value="account">Account</TabsTrigger>
-                <TabsTrigger value="appearance">Appearance</TabsTrigger>
-                <TabsTrigger value="notification">Notification</TabsTrigger>
-                <TabsTrigger value="display">Display</TabsTrigger> -->
                 </TabsList>
                 <TabsContent v-for="item in FormsSidebar" :key="`content-${item.id}`" :value="item.value"
                     class="pt-3 pl-1 pr-10">

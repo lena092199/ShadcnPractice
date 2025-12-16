@@ -14,10 +14,18 @@ import {
     SelectValue,
 } from '@/components/ui/select'
 
-interface DataTablePaginationProps {
+interface IDataTablePaginationProps {
     table: Table<Task>
 }
-defineProps<DataTablePaginationProps>()
+const { table } = defineProps<IDataTablePaginationProps>()
+
+const onPageSizeChange = (value: unknown) => {
+    if (value == null) return;
+    const pageSize = Number(value);
+    if (!Number.isNaN(pageSize)) {
+        table.setPageSize(pageSize);
+    }
+};
 </script>
 
 <template>
@@ -55,8 +63,7 @@ defineProps<DataTablePaginationProps>()
                 <p class="text-sm font-medium">
                     Rows per page
                 </p>
-                <Select :model-value="`${table.getState().pagination.pageSize}`"
-                    @update:model-value="table.setPageSize">
+                <Select :model-value="`${table.getState().pagination.pageSize}`" @update:model-value="onPageSizeChange">
                     <SelectTrigger class="px-3 flex gap-4">
                         <SelectValue :placeholder="`${table.getState().pagination.pageSize}`" />
                     </SelectTrigger>

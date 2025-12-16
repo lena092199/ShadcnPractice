@@ -1,6 +1,6 @@
 <script setup lang="ts">
 
-interface ContentItem {
+interface IContentItem {
     music: string,
     author: string,
     icon: string,
@@ -8,12 +8,12 @@ interface ContentItem {
     w: string,
 }
 
-interface Props {
+interface IProps {
     title: string,
     desc: string,
-    items: ContentItem[]
+    items: IContentItem[]
 }
-defineProps<Props>();
+defineProps<IProps>();
 </script>
 
 <template>

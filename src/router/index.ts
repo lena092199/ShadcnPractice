@@ -10,13 +10,13 @@ const route = createRouter({
         },
         {
             name: 'Authentication',
-            path: '/Authentication',
-            component: () => import('@/views/Authtication.vue')
+            path: '/authentication',
+            component: () => import('@/views/authtication.vue')
         },
         {
             name: 'Music',
-            path: '/Music',
-            component: () => import('@/views/Music/Music.vue'),
+            path: '/music',
+            component: () => import('@/views/music/Music.vue'),
             children: [
                 {
                     name: 'SubMusicDefault',
@@ -25,25 +25,25 @@ const route = createRouter({
                 },
                 {
                     name: 'SubMusic',
-                    path: 'SubMusic',
-                    component: () => import('@/views/Music/SubMusic.vue')
+                    path: 'sub-music',
+                    component: () => import('@/views/music/SubMusic.vue')
                 },
                 {
                     name: 'SubPodcasts',
-                    path: 'SubPodcasts',
-                    component: () => import('@/views/Music/SubPodcasts.vue')
+                    path: 'sub-podcasts',
+                    component: () => import('@/views/music/SubPodcasts.vue')
                 }
             ]
         },
         {
             name: 'Dashboard',
-            path: '/Dashboard',
-            component: () => import('@/views/Dashboard/Dashboard.vue')
+            path: '/dashboard',
+            component: () => import('@/views/dashboard/DashBoard.vue')
         },
         {
             name: 'Forms',
-            path: '/Forms',
-            component: () => import('@/views/Forms/Forms.vue'),
+            path: '/forms',
+            component: () => import('@/views/forms/Forms.vue'),
             children: [
                 {
                     name: 'formsDefault',
@@ -52,35 +52,35 @@ const route = createRouter({
                 },
                 {
                     name: 'Priority',
-                    path: 'Priority',
-                    component: () => import('@/views/Forms/FormsPriority.vue')
+                    path: 'priority',
+                    component: () => import('@/views/forms/FormsPriority.vue')
                 },
                 {
                     name: 'Account',
-                    path: 'Account',
-                    component: () => import('@/views/Forms/FormsAccount.vue')
+                    path: 'account',
+                    component: () => import('@/views/forms/FormsAccount.vue')
                 },
                 {
                     name: 'Appearance',
-                    path: 'Appearance',
-                    component: () => import('@/views/Forms/FormsAppearance.vue')
+                    path: 'appearance',
+                    component: () => import('@/views/forms/FormsAppearance.vue')
                 },
                 {
                     name: 'Notification',
-                    path: 'Notification',
-                    component: () => import('@/views/Forms/FormsNotification.vue')
+                    path: 'notification',
+                    component: () => import('@/views/forms/FormsNotification.vue')
                 },
                 {
                     name: 'Display',
-                    path: 'Display',
-                    component: () => import('@/views/Forms/FormsDisplay.vue')
+                    path: 'display',
+                    component: () => import('@/views/forms/FormsDisplay.vue')
                 },
             ]
         },
         {
             name: 'Tasks',
-            path: '/Tasks',
-            component: () => import('@/views/Tasks/Tasks.vue')
+            path: '/tasks',
+            component: () => import('@/views/tasks/Tasks.vue')
         }
     ]
 })

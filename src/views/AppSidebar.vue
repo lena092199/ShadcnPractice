@@ -35,28 +35,28 @@ const items = ref(
     [
         {
             title: "Authentication",
-            url: "/Authentication",
+            url: "/authentication",
             icon: Key,
         },
         {
             title: "Tasks",
-            url: "/Tasks",
+            url: "/tasks",
             icon: Home,
         },
         {
             title: "Forms",
-            url: "/Forms",
+            url: "/forms",
             icon: Inbox,
             bg: false
         },
         {
             title: "Music",
-            url: "/Music",
+            url: "/music",
             icon: Disc3,
         },
         {
             title: "Dashboard",
-            url: "/Dashboard",
+            url: "/dashboard",
             icon: Calendar,
         }
     ]

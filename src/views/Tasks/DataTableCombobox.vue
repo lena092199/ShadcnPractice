@@ -11,7 +11,7 @@
                             +{{ checkStatus }}
                         </span>
                     </template>
-                    <template v-if="SelectStatus.length > 0 && SelectStatus.length < 2">
+                    <template v-if="selectedStatus.length > 0 && selectedStatus.length < 2">
                         <Separator orientation="vertical"></Separator>
                         <span v-for="statusName in checkStatus" :key="statusName"
                             class="bg-gray-100 px-2 rounded-sm mr-1">
@@ -60,7 +60,7 @@
                             +{{ checkPriority }}
                         </span>
                     </template>
-                    <template v-if="SelectPriority.length > 0 && SelectPriority.length < 2">
+                    <template v-if="selectedPriority.length > 0 && selectedPriority.length < 2">
                         <Separator orientation="vertical"></Separator>
                         <span v-for="statusName in checkPriority" :key="statusName"
                             class="bg-gray-100 px-2 rounded-sm mr-1">
@@ -156,7 +156,7 @@ const selectStatus = (selectValue: string) => {
     emit('status-change', selectedStatuses)
 }
 
-const SelectStatus = computed(() => {
+const selectedStatus = computed(() => {
     console.log(statusOptions.value.filter((option => option.status)));
 
     return statusOptions.value.filter((option => option.status))
@@ -187,7 +187,7 @@ const selectPriority = (selectValue: string) => {
     emit('priority-change', selectedPriorities)
 }
 
-const SelectPriority = computed(() => {
+const selectedPriority = computed(() => {
     return priorityOptions.value.filter((option => option.status))
 })
 

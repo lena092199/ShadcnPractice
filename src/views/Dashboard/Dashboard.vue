@@ -1,6 +1,6 @@
 <template>
     <div class="flex border-b p-3 px-5 items-center">
-        <DashboardAlicia />
+        <DashBoardListMenu />
         <div class="hidden lg:flex gap-3 items-center px-5">
             <span v-for="(navC, index) in navContent" :key="index" :class="index === 0 ? 'text-red' : 'text-black/50'"
                 class="text-sm">{{ navC }}</span>
@@ -46,7 +46,7 @@
 </template>
 
 <script setup>
-import DashboardAlicia from './DashBoardAlicia.vue'
+import DashBoardListMenu from './DashBoardListMenu.vue'
 import DashboardTabs from './DashBoardTabs.vue';
 import DashboardRangeCalendar from './DashBoardRangeCalendar.vue'
 import Button from '@/components/ui/button/Button.vue';

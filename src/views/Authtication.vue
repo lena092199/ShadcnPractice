@@ -11,7 +11,6 @@
                 <footer>Sofia Davis</footer>
             </div>
         </div>
-
         <div class="flex flex-col md:flex-1 md:px-5 w-full">
             <div class="start-0 w-full flex justify-end px-3 pt-2">
                 <Button variant="ghost">Login</Button>

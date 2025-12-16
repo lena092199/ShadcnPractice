@@ -6,7 +6,7 @@
         <FieldSeparator></FieldSeparator>
         <Field>
             <FieldLabel>Font</FieldLabel>
-            <div class="w100">
+            <div class="w-100">
                 <NativeSelect>
                     <NativeSelectOption value="">Inter</NativeSelectOption>
                     <NativeSelectOption value="manrope">Manrope</NativeSelectOption>
@@ -102,15 +102,10 @@ import { Button } from '@/components/ui/button'
 import { Card, CardContent } from '@/components/ui/card'
 import { Skeleton } from '@/components/ui/skeleton'
 import { ref } from 'vue'
-// const selectedTheme = ref < 'light' | 'dark' > ('light')
 const selectedTheme = ref('light')
 </script>
 
 <style scoped>
-.w100 {
-    width: 400px
-}
-
 .Light {
     border-radius: 14px;
     background-color: color-mix(in oklab, var(--primary) 10%, transparent);

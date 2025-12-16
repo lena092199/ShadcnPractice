@@ -16,7 +16,7 @@
         </Field>
         <Field>
             <FieldLabel :class="{ 'text-red-600': emailError }">Email</FieldLabel>
-            <Select v-model="email" @update:modelValue="Email">
+            <Select v-model="email" @update:modelValue="validateEmail">
                 <SelectTrigger>
                     <SelectValue placeholder="Select an email"></SelectValue>
                 </SelectTrigger>
@@ -32,7 +32,7 @@
         </Field>
         <Field>
             <FieldLabel :class="{ 'text-red-600': bioError }">Bio</FieldLabel>
-            <Textarea defaultValue="I own a computer" v-model="bio" @input="Bio"></Textarea>
+            <Textarea defaultValue="I own a computer" v-model="bio" @input="validateBio"></Textarea>
             <FieldDescription>You can @mention other users and organizations to link to them.
             </FieldDescription>
             <FieldError v-show="bioError">Bio must be at least 2 characters.</FieldError>
@@ -42,8 +42,8 @@
             <FieldDescription>
                 Add links to your website, blog, or social media profiles.
             </FieldDescription>
-            <Input v-for="url in URLs" :key="url.id" :default-value="url.url" v-model="url.url"
-                @input="ValidateUrl(url.url)">
+            <Input v-for="url in urls" :key="url.id" :default-value="url.url" v-model="url.url"
+                @input="validateUrl(url.url)">
             </Input>
             <Field orientation="responsive">
                 <Button variant="outline" class="w-40" @click="addUrl">Add URL</Button>
@@ -91,7 +91,7 @@ const validateUsername = () => {
 // Email
 const email = ref('')
 const emailError = ref(false)
-const Email = (value) => {
+const validateEmail = (value) => {
     if (value !== undefined) {
         email.value = value
     }
@@ -106,13 +106,13 @@ const Email = (value) => {
 const bio = ref('I own a computer')
 const bioError = ref(false)
 
-const Bio = () => {
+const validateBio = () => {
     bioError.value = bio.value.length >= 0 && bio.value.length <= 2
 }
 
 // URLs
 const urlError = ref(false)
-const URLs = ref([
+const urls = ref([
     {
         id: 1,
         url: 'https://shadcn.com',
@@ -123,13 +123,13 @@ const URLs = ref([
     }
 ])
 
-const ValidateUrl = (url) => {
+const validateUrl = (url) => {
     urlError.value = !url.startsWith('https://')
 }
 
 const addUrl = () => {
-    const newId = URLs.value.length > 0 ? Math.max(...URLs.value.map(item => item.id)) + 1 : 1
-    URLs.value.push({
+    const newId = urls.value.length > 0 ? Math.max(...urls.value.map(item => item.id)) + 1 : 1
+    urls.value.push({
         id: newId,
         url: 'https://'
     })
@@ -138,15 +138,15 @@ const addUrl = () => {
 // Buttom
 const Update = () => {
     validateUsername()
-    Email()
-    Bio()
+    validateEmail()
+    validateBio()
 }
 
 const Reset = () => {
     username.value = ''
     email.value = ''
     bio.value = 'I own a computer'
-    URLs.value = [
+    urls.value = [
         {
             id: 1,
             url: 'https://shadcn.com',

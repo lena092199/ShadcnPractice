@@ -1,6 +1,6 @@
 <template>
     <Popover v-model:open="open">
-        <PopoverTrigger as-child class="w50">
+        <PopoverTrigger as-child class="w-50">
             <Button variant="outline" role="combobox" :aria-expanded="open" class="w-[200px] justify-between"
                 :class="{ 'text-muted-foreground': !selectedFramework?.text }">
                 {{ selectedFramework?.text || "Select..." }}
@@ -83,9 +83,5 @@ function selectFramework(selectedValue: string) {
 .no-border-shadow {
     border: none;
     box-shadow: none;
-}
-
-.w50 {
-    width: 200px;
 }
 </style>

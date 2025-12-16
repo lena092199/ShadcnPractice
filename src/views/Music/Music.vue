@@ -132,7 +132,7 @@
         </Menubar>
     </div>
     <div class="flex h-fit">
-        <div class="border-r flex-col gap-0 w-65" :class="Visible ? 'flex' : 'hidden'">
+        <div class="border-r flex-col gap-0 w-65" :class="visible ? 'flex' : 'hidden'">
             <SidebarProvider class="h-full">
                 <SidebarContent class="gap-0 pl-1">
                     <SidebarGroup>
@@ -178,8 +178,9 @@
                     <div class="bg-gray-100 rounded-lg p-1 flex box-border">
                         <RouterLink :to="item.url" class="bg-gray-100 flex items-center cursor-pointer text-sm px-1"
                             v-for="item in musicItems" :key="item.name">
-                            <span class="p-1 rounded-lg text-gray-800" :class="MusicSub(item.url)">{{ item.name
-                                }}</span>
+                            <span class="p-1 rounded-lg text-gray-800" :class="getMusicSub(item.url)">
+                                {{ item.name }}
+                            </span>
                         </RouterLink>
                     </div>
                 </div>
@@ -215,15 +216,15 @@ import { Menubar, MenubarMenu, MenubarTrigger, MenubarContent, MenubarItem, Menu
 import { MenubarSub, MenubarSubTrigger, MenubarSubContent, MenubarCheckboxItem, MenubarRadioGroup, MenubarRadioItem } from '@/components/ui/menubar';
 import { SidebarTrigger } from '@/components/ui/sidebar'
 
-const Visible = ref(false)
+const visible = ref(false)
 const sidebarVisible = () => {
-    console.log(Visible.value);
+    console.log(visible.value);
 
-    Visible.value = !Visible.value
+    visible.value = !visible.value
 }
 
 const route = useRoute()
-const MusicSub = (url) => {
+const getMusicSub = (url) => {
     if (url === '#') {
         return 'text-gray-100'
     }
@@ -233,8 +234,8 @@ const MusicSub = (url) => {
 }
 
 let musicItems = [
-    { name: 'Music', url: "/Music/SubMusic" },
-    { name: 'Podcasts', url: "/Music/SubPodcasts" },
+    { name: 'Music', url: "/music/sub-music" },
+    { name: 'Podcasts', url: "/music/sub-podcasts" },
     { name: 'Live', url: "#" }
 ]
 

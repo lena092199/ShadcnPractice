@@ -136,7 +136,6 @@ const props = defineProps<{
 const statusFilter = ref<string[]>([])
 const priorityFilter = ref<string[]>([])
 
-// 添加事件处理函数
 const handleStatusChange = (statuses: string[]) => {
     console.log("========== DataTable handleStatusChange 被调用 ==========");
     console.log("收到的 statuses:", statuses);
