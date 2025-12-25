@@ -16,11 +16,11 @@
 </template>
 <script setup>
 import SubMusicContent from './SubMusicContent.vue';
-import musicIcon1 from '@/assets/Music/musicIcon1.png';
-import musicIcon2 from '@/assets/Music/musicIcon2.jpg';
-import musicIcon3 from '@/assets/Music/musicIcon3.jpg';
-import musicIcon4 from '@/assets/Music/musicIcon4.jpg';
-import musicIcon5 from '@/assets/Music/musicIcon5.jpg';
-import musicIcon6 from '@/assets/Music/musicIcon6.jpg';
-import musicIcon7 from '@/assets/Music/musicIcon7.jpg';
+import musicIcon1 from '@/assets/music/musicIcon1.png';
+import musicIcon2 from '@/assets/music/musicIcon2.jpg';
+import musicIcon3 from '@/assets/music/musicIcon3.jpg';
+import musicIcon4 from '@/assets/music/musicIcon4.jpg';
+import musicIcon5 from '@/assets/music/musicIcon5.jpg';
+import musicIcon6 from '@/assets/music/musicIcon6.jpg';
+import musicIcon7 from '@/assets/music/musicIcon7.jpg';
 </script>
