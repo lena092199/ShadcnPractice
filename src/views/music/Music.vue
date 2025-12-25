@@ -200,7 +200,7 @@ import { SidebarProvider, Sidebar, SidebarHeader, SidebarGroup, SidebarContent, 
 import listen from '@/assets/music/nav/listen.svg';
 import browse from '@/assets/music/nav/browse.svg';
 import radio from '@/assets/music/nav/radio.svg';
-import Playlists from '@/assets/music/nav/Playlists.svg';
+import Playlists from '@/assets/music/nav/playlists.svg';
 import songs from '@/assets/music/nav/songs.svg';
 import made from '@/assets/music/nav/made.svg';
 import artists from '@/assets/music/nav/artists.svg';
