@@ -197,15 +197,15 @@
 
 <script setup>
 import { SidebarProvider, Sidebar, SidebarHeader, SidebarGroup, SidebarContent, SidebarMenu, SidebarMenuButton, SidebarMenuItem, SidebarGroupLabel } from '@/components/ui/sidebar';
-import listen from '@/assets/Music/Nav/listen.svg';
-import browse from '@/assets/Music/Nav/browse.svg';
-import radio from '@/assets/Music/Nav/radio.svg';
-import Playlists from '@/assets/Music/Nav/Playlists.svg';
-import songs from '@/assets/Music/Nav/songs.svg';
-import made from '@/assets/Music/Nav/made.svg';
-import artists from '@/assets/Music/Nav/artists.svg';
-import albums from '@/assets/Music/Nav/albums.svg';
-import allPlaylists from '@/assets/Music/Nav/allPlaylists.svg';
+import listen from '@/assets/music/nav/listen.svg';
+import browse from '@/assets/music/nav/browse.svg';
+import radio from '@/assets/music/nav/radio.svg';
+import Playlists from '@/assets/music/nav/Playlists.svg';
+import songs from '@/assets/music/nav/songs.svg';
+import made from '@/assets/music/nav/made.svg';
+import artists from '@/assets/music/nav/artists.svg';
+import albums from '@/assets/music/nav/albums.svg';
+import allPlaylists from '@/assets/music/nav/allPlaylists.svg';
 import { TextAlignJustify } from 'lucide-vue-next';
 import { Button } from '@/components/ui/button';
 import { ref } from 'vue'
